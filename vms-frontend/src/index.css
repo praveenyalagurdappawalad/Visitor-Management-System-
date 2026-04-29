@@ -2072,7 +2072,6 @@ tbody tr:hover td {
     color: rgba(255, 255, 255, 0.75);
     font-weight: 700;
 }
-}
 
 .register-bg .steps .step.active .step-num {
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
