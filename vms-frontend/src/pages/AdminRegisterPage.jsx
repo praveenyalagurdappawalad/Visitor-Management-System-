@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 
 import WizzyboxLogo from '../components/WizzyboxLogo';
 
-const API = 'http://localhost:8081/api';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8081/api';
 
 const notifyRegistration = async (admin) => {
   try {

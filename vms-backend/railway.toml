@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+buildCommand = "mvn clean package -DskipTests"
+
+[deploy]
+startCommand = "java -Dserver.port=$PORT -jar target/vms-backend-1.0.0.jar"
+healthcheckPath = "/api/visitors"
+restartPolicyType = "on_failure"
