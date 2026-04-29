@@ -1,0 +1,16 @@
+# ── Frontend ──────────────────────────────
+vms-frontend/node_modules/
+vms-frontend/dist/
+vms-frontend/.env
+
+# ── Backend ───────────────────────────────
+vms-backend/target/
+vms-backend/*.log
+vms-backend/uploads/
+
+# ── IDE / OS ──────────────────────────────
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
