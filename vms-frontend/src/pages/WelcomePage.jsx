@@ -2,8 +2,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import {
   FiPlay, FiArrowRight, FiList, FiGrid,
-  FiUserPlus, FiShield, FiClock, FiCheckCircle, FiX,
-  FiBarChart2, FiBell, FiChevronDown, FiSearch
+  FiUserPlus, FiShield, FiClock, FiCheckCircle, FiX, FiUsers
 } from 'react-icons/fi';
 import WizzyboxLogo from '../components/WizzyboxLogo';
 

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { FiEdit2, FiCheckCircle, FiUser } from 'react-icons/fi';
 import { useVisitor } from '../context/VisitorContext';
 import toast, { Toaster } from 'react-hot-toast';
@@ -7,13 +8,14 @@ export default function PreviewPage() {
   const navigate = useNavigate();
   const { currentVisitor, addVisitor, setCurrentVisitor } = useVisitor();
 
-  if (!currentVisitor) {
-    navigate('/register');
-    return null;
-  }
+  useEffect(() => {
+    if (!currentVisitor) navigate('/register');
+  }, [currentVisitor, navigate]);
 
-  const handleConfirm = () => {
-    const visitor = addVisitor(currentVisitor);
+  if (!currentVisitor) return null;
+
+  const handleConfirm = async () => {
+    const visitor = await addVisitor(currentVisitor);
     setCurrentVisitor(visitor);
     toast.success('Check-in request sent!');
     setTimeout(() => navigate('/checkin-sent'), 800);

@@ -79,7 +79,7 @@ export function VisitorProvider({ children }) {
     department: v.department,
     purpose:    v.purpose,
     host:       v.host,
-    photo:      v.photoPath ? `http://localhost:8081/uploads/${v.photoPath}` : null,
+    photo:      v.photoPath ? `${import.meta.env.VITE_API_URL || 'http://localhost:8081'}/uploads/${v.photoPath}` : null,
     status:     v.status?.toLowerCase(),
     checkIn:    v.checkInTime  ? new Date(v.checkInTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '—',
     checkOut:   v.checkOutTime ? new Date(v.checkOutTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null,

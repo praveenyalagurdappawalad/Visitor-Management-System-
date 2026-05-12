@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import { FiCamera, FiRefreshCw, FiArrowRight, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
@@ -11,6 +11,10 @@ export default function CameraPage() {
   const [photo, setPhoto]       = useState(null);
   const [camError, setCamError] = useState(false);
   const [flash, setFlash]       = useState(false);
+
+  useEffect(() => {
+    if (!currentVisitor) navigate('/register');
+  }, [currentVisitor, navigate]);
 
   const capture = useCallback(() => {
     const img = webcamRef.current?.getScreenshot();
@@ -28,10 +32,7 @@ export default function CameraPage() {
     navigate('/preview');
   };
 
-  if (!currentVisitor) {
-    navigate('/register');
-    return null;
-  }
+  if (!currentVisitor) return null;
 
   return (
     <div className="cam-root">

@@ -85,7 +85,13 @@ export default function RegisterPage() {
                 className={`reg-input ${errors.mobile ? 'reg-input-error' : ''}`}
                 placeholder="10-digit mobile number"
                 value={form.mobile}
-                onChange={e => setField('mobile', e.target.value)}
+                inputMode="numeric"
+                pattern="[0-9]*"
+                type="tel"
+                onChange={e => {
+                  const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                  setField('mobile', digits);
+                }}
                 maxLength={10}
               />
               {errors.mobile && <span className="reg-error">{errors.mobile}</span>}
